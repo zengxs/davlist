@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "vc/wrapper.go",
+      "use": "vercel-go-autogen@0.0.1-alpha.1"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/vc/wrapper.go"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "davlist-frontend",
+  "license": "Apache-2.0",
+  "private": true,
+  "scripts": {
+    "build": "webpack",
+    "clean": "rimraf frontend/public/_assets frontend/templates/webpack-*",
+    "rebuild": "npm run clean && npm run build"
+  },
+  "dependencies": {
+    "admin-lte": "~3.1",
+    "bootstrap-vue": "~2.21",
+    "lodash": "~4.17",
+    "vue": "~2.6"
+  },
+  "devDependencies": {
+    "@babel/core": "~7.13",
+    "@babel/preset-env": "~7.13",
+    "@types/lodash": "^4.14.168",
+    "@types/node": "^14.14.35",
+    "babel-loader": "~8.2",
+    "css-loader": "~5.1",
+    "html-webpack-plugin": "~5.3",
+    "rimraf": "^3.0.2",
+    "style-loader": "~2.0",
+    "vue-loader": "~15.9",
+    "vue-template-compiler": "~2.6",
+    "webpack": "~5.27",
+    "webpack-cli": "~4.5"
+  }
+}
