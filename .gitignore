@@ -168,7 +168,9 @@ dist
 /bin/
 /davlist
 
-/frontend/public/_assets/
+/frontend/public/*
+!/frontend/public/embed.go
+!/frontend/public/robots.txt
 webpack-*.gohtml
 
 .vercel

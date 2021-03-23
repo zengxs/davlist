@@ -9,12 +9,17 @@ const STATIC_DIR = path.resolve(FRONTEND_DIR, 'public');
 const TEMPLATES_DIR = path.resolve(FRONTEND_DIR, 'templates');
 
 const config = {
-  mode: 'production',
   entry: path.resolve(FRONTEND_DIR, 'main.mjs'),
   output: {
     filename: '[name]-[contenthash].js',
     path: path.resolve(STATIC_DIR, '_assets'),
     hashDigestLength: 8
+  },
+  externals: {
+    'lodash': '_',
+    'jquery': 'jQuery',
+    'vue': 'Vue',
+    'bootstrap-vue': 'BootstrapVue',
   },
   module: {
     rules: [
@@ -45,7 +50,9 @@ const config = {
     new HtmlWebpackPlugin({
       template: path.resolve(FRONTEND_DIR, 'index.gohtml'),
       filename: path.resolve(TEMPLATES_DIR, 'webpack-index.gohtml'),
-      publicPath: '/_assets/'
+      scriptLoading: 'blocking',
+      inject: 'body',
+      publicPath: '/_assets/',
     })
   ]
 };
