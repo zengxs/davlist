@@ -12,14 +12,13 @@ const config = {
   entry: path.resolve(FRONTEND_DIR, 'main.mjs'),
   output: {
     filename: '[name]-[contenthash].js',
-    path: path.resolve(STATIC_DIR, '_assets'),
+    path: path.resolve(STATIC_DIR, 'assets'),
     hashDigestLength: 8
   },
   externals: {
     'lodash': '_',
     'jquery': 'jQuery',
     'vue': 'Vue',
-    'bootstrap-vue': 'BootstrapVue',
   },
   module: {
     rules: [
@@ -50,9 +49,9 @@ const config = {
     new HtmlWebpackPlugin({
       template: path.resolve(FRONTEND_DIR, 'index.gohtml'),
       filename: path.resolve(TEMPLATES_DIR, 'webpack-index.gohtml'),
-      scriptLoading: 'blocking',
-      inject: 'body',
-      publicPath: '/_assets/',
+      // 按模版手动写入
+      inject: false,
+      publicPath: 'assets/',
     })
   ]
 };

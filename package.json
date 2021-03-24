@@ -3,13 +3,14 @@
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
-    "build": "webpack --config webpack.dev.js",
-    "serve": "webpack serve --open --config webpack.dev.js",
-    "reserve": "npm run rebuild && npm run serve",
-    "dev": "nodemon -w frontend -i frontend/public -i frontend/templates/webpack-* -x npm run reserve",
-    "build:prod": "webpack --config webpack.prod.js",
-    "clean": "rimraf frontend/public/_assets frontend/public/index.html frontend/templates/webpack-*",
-    "rebuild": "npm run clean && npm run build"
+    "build:fe": "webpack --config webpack.dev.js",
+    "rebuild:fe": "npm run clean && npm run build:fe",
+    "build:fe:prod": "webpack --config webpack.prod.js",
+    "build": "npm run rebuild:fe && go build -o ./bin/davlist ./cmd/davlist",
+    "build:prod": "npm run clean && npm run build:fe:prod && go build -o ./bin/davlist ./cmd/davlist",
+    "start": "npm run build && ./bin/davlist",
+    "dev": "nodemon -e 'go,js,mjs,vue,gohtml' -i frontend/public -i frontend/templates/webpack-* -x npm run start",
+    "clean": "rimraf frontend/public/assets frontend/templates/webpack-*"
   },
   "dependencies": {
     "admin-lte": "~3.1",
@@ -26,7 +27,6 @@
     "babel-loader": "~8.2",
     "css-loader": "~5.1",
     "html-webpack-plugin": "~5.3",
-    "http-server": "^0.12.3",
     "nodemon": "^2.0.7",
     "rimraf": "^3.0.2",
     "style-loader": "~2.0",
@@ -34,7 +34,6 @@
     "vue-template-compiler": "~2.6",
     "webpack": "~5.27",
     "webpack-cli": "~4.5",
-    "webpack-dev-server": "^3.11.2",
     "webpack-merge": "~5.7"
   }
 }

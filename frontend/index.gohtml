@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>davlist</title>
+  <title>Davlist</title>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.21/dist/bootstrap-vue.min.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/css/adminlte.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15/css/all.min.css"/>
 </head>
 <body>
 <div id="app">Loading...</div>
@@ -15,5 +16,8 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.21/dist/bootstrap-vue.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/js/adminlte.min.js"></script>
+<% for (key in htmlWebpackPlugin.files.js) { %>
+<script src="/?type=static&path=<%= htmlWebpackPlugin.files.js[key] %>"></script>
+<% } %>
 </body>
 </html>

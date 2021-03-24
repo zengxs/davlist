@@ -1,5 +1,5 @@
 //go:generate yarn
-//go:generate yarn build:prod
+//go:generate yarn build:fe:prod
 
 // 不要将 package 命名为 vc
 // 会与 vercel builder 产生冲突
