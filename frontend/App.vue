@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <b-button variant="primary" size="sm">Click me!</b-button>
+    <button class="btn btn-sm btn-primary">Click me!</button>
   </div>
 </template>
 
